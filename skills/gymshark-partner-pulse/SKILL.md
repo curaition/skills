@@ -87,8 +87,9 @@ Read `_shared/gymshark-config.md` for the full three-tier scoping strategy. The 
 - `source_scope`: `my_sources` (restricts to project sources only)
 
 **Cross-domain intelligence (Signal 1, mandatory):** Use Tier 3 scoping:
-- `source_scope`: `all` or `global`
+- `source_scope`: `all` or `library`
 - **DO NOT pass `project_id`**
+- Present these as domain patterns, never as roster patterns.
 
 These IDs are non-negotiable. Every tool call must include them where applicable.
 
@@ -131,7 +132,7 @@ curaition_search_entities → Person entities (entity_type: person, limit: 200)
 curaition_entity_cooccurrence → Co-occurrences for key athletes identified in Batch 1
 curaition_semantic_search → Targeted searches for interesting themes/stories
 curaition_trend_analysis → Rising/falling entities (if sufficient historical data)
-curaition_detect_patterns → Structural patterns across the ecosystem
+curaition_detect_patterns → Structural patterns across the roster's own sources (project_id + my_sources)
 ```
 
 **Batch 3 — Source content for linking:**

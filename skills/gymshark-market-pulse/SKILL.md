@@ -57,7 +57,7 @@ Read `_shared/gymshark-config.md` for the full three-tier scoping strategy. The 
 - **DO NOT pass `project_id`** — omitting it returns evergreen content (non-project sources)
 
 **Cross-domain intelligence:** Use Tier 3 scoping:
-- `source_scope`: `all` or `global`
+- `source_scope`: `all` or `library` (`global` is deprecated)
 - **DO NOT pass `project_id`**
 
 **Important:** When project_id is omitted, results may include project content in matching domains. Filter by source handle/URL to exclude known Partner Ecosystem athlete handles if needed.

@@ -87,6 +87,8 @@ curaition_detect_patterns
 ```
 Returns structural patterns forming across the ecosystem. Good for the "Three Signals" section.
 
+With `project_id` + `my_sources` these patterns come only from the roster's own sources ("From your sources"). For the patterns already on the Creator Dashboard Patterns tab, call `curaition_registry(registry_type: "pattern", action: "list", project_id: "0bdbc3d2-1360-4430-b634-dea95841c9ba")`. Cite only `shelf: "own"` rows as roster patterns; `tracked` rows are about accounts the roster tracks. Pass `filters.include_domain_patterns: true` only when domain patterns are wanted, and label `linked`/`domain` rows as domain patterns.
+
 ### Trend Analysis (only with sufficient historical data)
 ```
 curaition_trend_analysis
