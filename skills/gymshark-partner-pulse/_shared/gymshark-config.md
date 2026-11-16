@@ -23,7 +23,7 @@ source_scope: "my_sources"
 
 **All 1,560 rows are live as of 2026-08-25.** The 124 rows carried over from `Partner Ecosystem` had been PAUSED since 2026-07-30 — archiving that project cascaded a pause onto every source exclusive to it (by design, CUR-1018). Once they were linked here that precondition no longer held, so 123 were resumed; the 1 exception is a source separately flagged `NEEDS_REVIEW` for no-yield. Content published between 2026-07-30 and 2026-08-25 was never ingested for those channels, so **expect a ~4-week hole in their history** — a creator can look quiet in that window and not have been. Check `min(published_at)` after 08-25 before calling a lull real.
 
-**Domain scoping caveat.** This project's `domains` array is `["activewear", "lifestyle"]` (recomputed from its sources on 2026-08-25; it had been empty). A project-scoped CurAItion read returns project-source content **plus evergreen content in matching domains** — currently ~379 non-project items in those two domains. That is small against ~39,000 roster items, but it is not roster content. If a Tier 1 result names a source you cannot find in `curaition_list_sources(project_id=...)`, that is why: it came in through the domain match, and it does not belong in a roster claim.
+**Domain scoping caveat.** This project's `domains` array is `["activewear", "lifestyle"]` (recomputed from its sources on 2026-08-25; it had been empty). A project-scoped CurAItion read returns project-source content **plus evergreen content in matching domains** — currently ~379 non-project items in those two domains. That is small against ~39,000 roster items, but it is not roster content. If a Tier 1 result names a source you cannot find in `curaition_list_sources(project_id=...)`, that is why: it came in through the domain match, and it does not belong in a roster claim. Pattern calls are the exception: `curaition_detect_patterns` and the registry pattern list with `project_id` read only the project's own sources; domain patterns appear only when asked for.
 
 > **Changed 2026-08-25 (superseded the same day — read the second note).** Tier 1
 > previously pointed at `Partner Ecosystem`
@@ -91,9 +91,11 @@ source_scope: "my_sources"
 
 ```
 org_id: "297e242a-4f5b-4012-8f82-10f717eeade7"
-source_scope: "all"    (or "global" for CurAItion baseline only)
+source_scope: "all"    (or "library" for CurAItion baseline only)
 (DO NOT pass project_id)
 ```
+
+Present these as domain patterns, never as roster patterns.
 
 **Use for:** Cross-domain signals in BOTH digests. Patterns from crypto, tech, gaming, F1, culture, food, music, etc. that have implications for Gymshark's strategy.
 
